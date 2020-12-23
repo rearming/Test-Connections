@@ -1,6 +1,6 @@
 ﻿namespace Core
 {
-	public enum Coordinate
+	public enum Axis
 	{
 		X,
 		Y,

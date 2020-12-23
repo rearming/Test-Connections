@@ -21,15 +21,15 @@ namespace Utils
 			return Singleton<ConnectablesStorage>.Instance.TryGetConnectable(hit.collider.gameObject, out result);
 		}
 
-		public static Vector3 CorrectPlaneMovement(Vector3 prevPos, Vector3 newPos, Coordinate planeNormal)
+		public static Vector3 CorrectPlaneMovement(Vector3 prevPos, Vector3 newPos, Axis planeNormal)
 		{
 			switch (planeNormal)
 			{
-				case Coordinate.X:
+				case Axis.X:
 					return newPos.Mul(new Vector3(0f, 1f, 1f)) + prevPos.Mul(new Vector3(1f, 0f, 0f));
-				case Coordinate.Y:
+				case Axis.Y:
 					return newPos.Mul(new Vector3(1f, 0f,1f)) + prevPos.Mul(new Vector3(0f, 1f, 0f));
-				case Coordinate.Z:
+				case Axis.Z:
 					return newPos.Mul(new Vector3(1f, 1f,0f)) + prevPos.Mul(new Vector3(0f, 0f, 1f));
 				default:
 					throw new ArgumentOutOfRangeException(nameof(planeNormal), planeNormal, null);

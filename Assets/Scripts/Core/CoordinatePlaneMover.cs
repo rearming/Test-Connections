@@ -9,7 +9,7 @@ namespace Core
 	public class CoordinatePlaneMover : MonoBehaviour, IMover
 	{
 		[SerializeField]
-		private Coordinate lockedAxis = Coordinate.Y;
+		private Axis lockedAxis = Axis.Y;
 
 		[Header("Gizmos Drawing")]
 		
@@ -51,11 +51,11 @@ namespace Core
 		private void SetMoveCoordinate()
 		{
 			if (Input.GetKeyDown(KeyCode.X))
-				lockedAxis = Coordinate.X;
+				lockedAxis = Axis.X;
 			else if (Input.GetKeyDown(KeyCode.Y))
-				lockedAxis = Coordinate.Y;
+				lockedAxis = Axis.Y;
 			else if (Input.GetKeyDown(KeyCode.Z))
-				lockedAxis = Coordinate.Z;
+				lockedAxis = Axis.Z;
 		}
 
 		private Plane GetMovementPlane(Vector3 targetPos)
@@ -64,13 +64,13 @@ namespace Core
 			
 			switch (lockedAxis)
 			{
-				case Coordinate.X:
+				case Axis.X:
 					normal = Vector3.right;
 					break;
-				case Coordinate.Y:
+				case Axis.Y:
 					normal = Vector3.up;
 					break;
-				case Coordinate.Z:
+				case Axis.Z:
 					normal = Vector3.forward;
 					break;
 				default:
@@ -106,15 +106,15 @@ namespace Core
 			Gizmos.color = Color.white;
 		}
 
-		private Color GetGizmosPlaneColor(Coordinate normal)
+		private Color GetGizmosPlaneColor(Axis normal)
 		{
 			switch (normal)
 			{
-				case Coordinate.X:
+				case Axis.X:
 					return Color.red;
-				case Coordinate.Y:
+				case Axis.Y:
 					return Color.green;
-				case Coordinate.Z:
+				case Axis.Z:
 					return Color.blue;
 				default:
 					throw new ArgumentOutOfRangeException();
