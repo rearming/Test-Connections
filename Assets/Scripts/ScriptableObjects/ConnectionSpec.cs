@@ -12,9 +12,5 @@ namespace ScriptableObjects
 		[SerializeField]
 		private Color otherSelectionColor = Color.blue;
 		public Color OtherSelectionColor => otherSelectionColor;
-
-		[SerializeField]
-		private GameObject connectionPrefab;
-		public GameObject ConnectionPrefab => connectionPrefab;
 	}
 }

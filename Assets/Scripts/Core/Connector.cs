@@ -16,7 +16,7 @@ namespace Core
 		[SerializeField]
 		protected GameObject connectionRendererPrefab;
 
-		protected (Connectable, Connectable) Connectables;
+		protected (Connectable, Connectable) Connectables = (null, null);
 
 		protected void Deselect()
 		{

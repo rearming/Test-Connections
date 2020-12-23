@@ -82,8 +82,10 @@ namespace Core
 
 		private void OnDragEnd()
 		{
-			if (Connectables.Item2 == null)
-				_currentConnectionRenderer.Break();
+			if (Connectables.Item1 != null && Connectables.Item2 == null)
+				_currentConnectionRenderer?.Break();
+			Connectables = (null, null);
+			_currentConnectionRenderer = null;
 			Deselect();
 		}
 	}

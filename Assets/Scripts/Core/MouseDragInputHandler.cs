@@ -36,16 +36,15 @@ namespace Core
 				if (Input.GetMouseButtonDown((int) _trackedButton) && !mouseButtonDown)
 				{
 					mouseButtonDown = true;
-					if (!_onDragBegin?.Invoke() == false)
-						continue;
+					if (_onDragBegin?.Invoke() == false)
+						mouseButtonDown = false;
 				}
-				if (Input.GetMouseButtonUp((int) _trackedButton))
+				else if (Input.GetMouseButtonUp((int) _trackedButton))
 				{
 					mouseButtonDown = false;
 					_onDragEnd?.Invoke();
 				}
-				
-				if (mouseButtonDown)
+				else if (mouseButtonDown)
 				{
 					_onDrag?.Invoke();
 				}
